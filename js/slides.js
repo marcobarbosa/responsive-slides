@@ -61,7 +61,7 @@ var SLIDES = (function(window, document){
      * 34 = Page Down
      * 37 = Left arrow
      *
-     * @param  {Object} event The event object
+     * @param  {Object} event [The event objec.t]
      */
     var onKeyDown = function(event) {
 
@@ -79,12 +79,18 @@ var SLIDES = (function(window, document){
         }
 
     };
-
+    
     /**
+     * ---------------------------------------------------------
      * Swipe events
      * Courtesy of PADILICIOUS.COM and MACOSXAUTOMATION.COM
+     * ---------------------------------------------------------
      */
     
+    /**
+     * When the touch is stopped by the user.
+     * @param  {Object} event [The event object.]
+     */
     var onTouchCancel = function(event) {
         // reset the variables back to default values
         touch.fingerCount = 0;
@@ -121,6 +127,10 @@ var SLIDES = (function(window, document){
         }
     };
 
+    /**
+     * When the swipe is happening (touch must be moving)
+     * @param  {Object} event [The event object.]
+     */
     var onTouchMove = function(event) {
 
         // Prevent scrolling.
@@ -135,6 +145,9 @@ var SLIDES = (function(window, document){
 
     };
 
+    /**
+     * Math calculates to get the angle in degrees.
+     */
     var calculateAngle = function() {
         var X = touch.startX - touch.curX;
         var Y = touch.curY - touch.startY;
@@ -144,6 +157,9 @@ var SLIDES = (function(window, document){
         if ( touch.swipeAngle < 0 ) { touch.swipeAngle =  360 - Math.abs(touch.swipeAngle); }
     };
 
+    /**
+     * Finds out what angle is being done with the swiping.
+     */
     var determineSwipeDirection = function() {
         if ( (touch.swipeAngle <= 45) && (touch.swipeAngle >= 0) ) {
             touch.swipeDirection = 1;
@@ -158,6 +174,10 @@ var SLIDES = (function(window, document){
         }*/
     };
 
+    /**
+     * Events that is triggered when the touch ends.
+     * @param  {Object} event [The event object.]
+     */
     var onTouchEnd = function(event) {
         
         event.preventDefault();
@@ -181,35 +201,65 @@ var SLIDES = (function(window, document){
         }
     };
 
-    // ---------------------------------------------------------
 
+    /**
+     * ---------------------------------------------------------
+     * Hash functions kindly based on the Google html5 slides.
+     * URL: http://code.google.com/p/html5slides/
+     * ---------------------------------------------------------
+     */
+    
+    /**
+     * Gets the number from the hash URL
+     * and tries to slide to the specified number.
+     */
     var getSlideNumFromHash = function() {
+        // Get the hash number.
         var nHashSlide = parseInt(location.hash.substr(1), 10);
-        if (nHashSlide) {
-            nCurrentSlide = nHashSlide - 1;
-        } else {
-            nCurrentSlide = 0;
-        }
-    };
+        // Default direction.
+        var _direction = 1;
 
-    var setSlideNumHash = function() {
-        location.replace('#' + (nCurrentSlide + 1));
+        // Set the direction based on the specified number.
+        if (nCurrentSlide - nHashSlide < 0) {
+            _direction = 1;
+        } else {
+            _direction = -1;
+        }
+
+        // Do the sliding.
+        api.doSlide(_direction, nHashSlide);
     };
 
     /**
-     * [doSlide description]
+     * Updates the Hash in the URL to the current slide number.
+     */
+    var setSlideNumHash = function() {
+        location.replace('#' + nCurrentSlide);
+    };
+
+    // ---------------------------------------------------------
+
+    /**
+     * Makes the slide transition to a specific direction.
      *
      * The direction can be -1 for left and +1 for right.
      *
      * @param  {Integer} direction [The direction of the sliding.]
+     * @param {Integer} jumpToSlide [Slide to jump to - optional.]
      * @return {[type]}
      */
-    api.doSlide = function(direction) {
+    api.doSlide = function(direction, jumpToSlide) {
 
-        var nTargetSlide = nCurrentSlide + direction;
+        var nTargetSlide = null;
         var nextSlide = null;
         var previousSlide = null;
         var newSlideClass = (direction > 0) ? 'right' : 'left';
+
+        if (jumpToSlide) {
+            nTargetSlide = jumpToSlide;
+        } else {
+            nTargetSlide = nCurrentSlide + direction;
+        }
 
         // If we can't slide, get out.
         if (!direction || nTargetSlide < 0 || nTargetSlide > (NUM_TOTAL_SLIDES - 1) || isAnimating) {
@@ -243,6 +293,8 @@ var SLIDES = (function(window, document){
             isAnimating = false;
             // Update the progress bar on the top.
             api.updateProgressBar();
+            // Update the URL.
+            setSlideNumHash();
         }, 400);
 
     };
@@ -251,19 +303,9 @@ var SLIDES = (function(window, document){
      * Increases the width of the progress bar.
      */
     api.updateProgressBar = function() {
+        // Resizes the width.
+        // The transition effect is handled by CSS.
         elements.progressBar.style.width = Math.floor(((nCurrentSlide + 1) / NUM_TOTAL_SLIDES) * 100) + '%';
-    };
-
-    /**
-     * Jumps to a specific slide from the deck.
-     * @param  {Number} slideTarget [the index of the slide to jump to.]
-     */
-    api.goToSlide = function(slideTarget) {
-
-        // var _nSlideTarget = parseInt(slideTarget, 10);
-        // var nextSlide = document.getElementById('slide-' + _nSlideTarget);
-        // var previousSlide = document.getElementById('slide-' + nCurrentSlide);
-
     };
 
     /**
@@ -282,7 +324,7 @@ var SLIDES = (function(window, document){
     };
 
     /**
-     * Add callbacks to the events.
+     * Add callbacks to the events listeners.
      */
     var addEventListeners = function() {
         document.addEventListener('keydown', onKeyDown, true);
@@ -300,15 +342,14 @@ var SLIDES = (function(window, document){
      * Constructor.
      */
     api.init = function() {
-
         // http://remysharp.com/2010/08/05/doing-it-right-skipping-the-iphone-url-bar/
-//        /mobile/i.test(navigator.userAgent) && !location.hash && setTimeout(function () {
-  //          window.scrollTo(0, 1);
-    //    }, 1000);​
+       // /mobile/i.test(navigator.userAgent) && !location.hash && setTimeout(function () {
+       //     window.scrollTo(0, 1);
+       // }, 1000);​
         // trigger the full screen API.
         // $context.webkitRequestFullScreen();
         // $context.mozRequestFullScreen();
-        // getSlideNumFromHash();
+        getSlideNumFromHash();
         addEventListeners();
         document.body.classList.add('ready');
     };

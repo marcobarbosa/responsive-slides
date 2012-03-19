@@ -97,9 +97,9 @@ sub {
     bottom: -0.25em;
 }
 pre {
-    /*white-space: pre;
+    white-space: pre;
     white-space: pre-wrap;
-    word-wrap: break-word;*/
+    word-wrap: break-word;
 }
 b, strong {
     font-weight: bold;
@@ -108,14 +108,14 @@ abbr[title] {
     border-bottom: 1px dotted;
 }
 a {
-  text-decoration: underline;
+  color: #9CEDDA;
+  text-shadow: 1px 1px 0 #000;
+  text-decoration: none;
 
-  &:visited{
-
-  }
+  &:visited{}
 
   &:hover {
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   &:focus {
@@ -184,7 +184,7 @@ body,
 #viewport {
 
     section {
-        background-color: #ddd;
+        background-color: #eee;
         background-image: -moz-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
         background-image: -webkit-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
         background-image: -o-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
@@ -215,19 +215,33 @@ body,
 
     /*
      *   Colors
+     *   http://www.colourlovers.com/palette/7150/recursive_code
      */
     .quote {
-        background-color: #333;
+        //background-color: #333;
+        background-color: #3C445B;
         color: #fff;
         text-shadow: 1px 1px 0 #111;
+
+        .long {
+            font-size: 24 / @em;
+            margin-top: -0.5em;
+        }
     }
 
     .chapter {
-        background-color: #D0E6F7;
+        //background-color: #D0E6F7;
+        background-color: #9CEDDA;
+
+        h1 {
+            font-size: 26 / @em;
+            text-transform: uppercase;
+        }
     }
 
-    .yellow {
-        background-color: #fdc32b;
+    .link {
+        //background-color: #fdc32b;
+        background-color: #6B7A8F;
     }
 
     .pink,
@@ -259,8 +273,13 @@ body,
     }
 
     .credits {
+
+        a {
+            color: #111;
+        }
         
         ul > li {
+            font-size: (@font-size*0.8125) / @em;
             margin-bottom: 10px;
         }
     }
@@ -276,7 +295,8 @@ body,
 
     > div {
 
-        background: #C3FF68;
+        //background: #C3FF68;
+        background: #47C0BE;
         height: 100%;
         width: 0%;
 
@@ -379,11 +399,23 @@ img {
     border: 0;
     -ms-interpolation-mode: bicubic;
 }
-.has-code {
-    margin: 0 10%;
 
-    code span {
-        color: #888;
+.code {
+
+    background: #30303E!important;
+
+    figure {
+        margin: 0 10%;
+        
+        code {
+            color: #9CEDDA;
+
+            text-shadow: none;
+            
+            span {
+                color: #CCC0DE;
+            }
+        }
     }
 
 }
@@ -458,9 +490,14 @@ h1, h2, h3, h4, p, blockquote, span, li {
     font-weight: normal;
 }
 
+.strike {
+    display: inline;
+    text-decoration: line-through;
+}
+
 ol li,
 ul li {
-    .large();
+    .normal();
     list-style-type: none;
     text-align: left;
     padding-left: 2em;
@@ -473,12 +510,6 @@ ul li {
     li {
         padding-left: 1em;
     }
-}
-
-.code {
-    color: #111;
-    display: block;
-    margin: 0 10%;
 }
 
 .quote {
@@ -558,9 +589,33 @@ h3 {
 @media screen and (max-width: 40em) and (orientation: landscape) {
     #viewport {
         section {
-            padding-top: 1.2em;
+            padding-top: 0.8em;
         }
     }
+
+    .graphic {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    h1,h2, blockquote {
+        margin-top: 0;
+    }
+
+    .quote {
+
+        .long {
+            font-size: 18 / @em;
+            margin-top: 0.3em!important;
+        }
+    }
+    
+    .strike + span {
+        display: inline;
+    }
+
+
 
 }
 
@@ -643,18 +698,19 @@ h3 {
         font-size: 68 / @em;
     }
 
-    .orphan {
+    .orphan,
+    .author {
         .huge();
+    }
+
+    #viewport .chapter h1 {
+        .massive();
     }
 
     blockquote p,
     code {
         font-size: 38 / @em;
         line-height: (@line*2) / 38 * 1em;
-    }
-
-    .author {
-        .huge();
     }
 
     .side {

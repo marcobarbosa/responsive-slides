@@ -92,10 +92,9 @@ sub {
   bottom: -0.25em;
 }
 pre {
-  /*white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;*/
-
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 b,
 strong {
@@ -105,10 +104,12 @@ abbr[title] {
   border-bottom: 1px dotted;
 }
 a {
-  text-decoration: underline;
+  color: #9CEDDA;
+  text-shadow: 1px 1px 0 #000;
+  text-decoration: none;
 }
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:focus {
   outline: thin dotted;
@@ -208,11 +209,12 @@ body,
 #viewport {
   /*
      *   Colors
+     *   http://www.colourlovers.com/palette/7150/recursive_code
      */
 
 }
 #viewport section {
-  background-color: #ddd;
+  background-color: #eee;
   background-image: -moz-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
   background-image: -webkit-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
   background-image: -o-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
@@ -238,15 +240,23 @@ body,
   z-index: 100;
 }
 #viewport .quote {
-  background-color: #333;
+  background-color: #3C445B;
   color: #fff;
   text-shadow: 1px 1px 0 #111;
 }
-#viewport .chapter {
-  background-color: #D0E6F7;
+#viewport .quote .long {
+  font-size: 1.5em;
+  margin-top: -0.5em;
 }
-#viewport .yellow {
-  background-color: #fdc32b;
+#viewport .chapter {
+  background-color: #9CEDDA;
+}
+#viewport .chapter h1 {
+  font-size: 1.625em;
+  text-transform: uppercase;
+}
+#viewport .link {
+  background-color: #6B7A8F;
 }
 #viewport .pink,
 #viewport .pink a {
@@ -271,7 +281,11 @@ body,
   display: block;
   left: 0;
 }
+#viewport .credits a {
+  color: #111;
+}
 #viewport .credits ul > li {
+  font-size: 0.8125em;
   margin-bottom: 10px;
 }
 #progress-bar {
@@ -281,7 +295,7 @@ body,
   z-index: 999;
 }
 #progress-bar > div {
-  background: #C3FF68;
+  background: #47C0BE;
   height: 100%;
   width: 0%;
   -webkit-transition: width 0.3s ease-out;
@@ -369,11 +383,18 @@ img {
   border: 0;
   -ms-interpolation-mode: bicubic;
 }
-.has-code {
+.code {
+  background: #30303E!important;
+}
+.code figure {
   margin: 0 10%;
 }
-.has-code code span {
-  color: #888;
+.code figure code {
+  color: #9CEDDA;
+  text-shadow: none;
+}
+.code figure code span {
+  color: #CCC0DE;
 }
 .graphic {
   display: block;
@@ -454,12 +475,18 @@ li {
   text-align: center;
   font-weight: normal;
 }
+.strike {
+  display: inline;
+  text-decoration: line-through;
+}
 ol li,
 ul li {
-  /* 26 / 36px */
+  /* 16px / 24px */
 
-  font-size: 2em;
-  line-height: 1.3846153846153846em;
+  font-size: 1em;
+  line-height: 1.5em;
+  /* 24 */
+
   list-style-type: none;
   text-align: left;
   padding-left: 2em;
@@ -470,11 +497,6 @@ ul li {
 }
 .side li {
   padding-left: 1em;
-}
-.code {
-  color: #111;
-  display: block;
-  margin: 0 10%;
 }
 .quote h1,
 .quote blockquote {
@@ -545,7 +567,24 @@ h3 {
 }
 @media screen and (max-width: 40em) and (orientation: landscape) {
   #viewport section {
-    padding-top: 1.2em;
+    padding-top: 0.8em;
+  }
+  .graphic {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+  h1,
+  h2,
+  blockquote {
+    margin-top: 0;
+  }
+  .quote .long {
+    font-size: 1.125em;
+    margin-top: 0.3em!important;
+  }
+  .strike + span {
+    display: inline;
   }
 }
 /*
@@ -611,22 +650,23 @@ h3 {
   h1 {
     font-size: 4.25em;
   }
-  .orphan {
-    /* 42px / 48px */
-  
-    font-size: 2.625em;
-    line-height: 1.1428571428571428em;
-  }
-  blockquote p,
-  code {
-    font-size: 2.375em;
-    line-height: 1.263157894736842em;
-  }
+  .orphan,
   .author {
     /* 42px / 48px */
   
     font-size: 2.625em;
     line-height: 1.1428571428571428em;
+  }
+  #viewport .chapter h1 {
+    /* 68px / 72px */
+  
+    font-size: 4.25em;
+    line-height: 1.0588235294117647em;
+  }
+  blockquote p,
+  code {
+    font-size: 2.375em;
+    line-height: 1.263157894736842em;
   }
   .side li {
     font-size: 2.625em;

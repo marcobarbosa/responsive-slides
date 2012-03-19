@@ -10,13 +10,13 @@
 
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="cleartype" content="on">
     
     
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="css/style.css?v12">
+    <link rel="stylesheet" href="css/style.css?v17">
 
   </head>
 
@@ -33,39 +33,39 @@
 
         <section>
           <h1 class="normal orphan">
-            <a href="http://bit.ly/remonkeys" target="_blank">http://bit.ly/remonkeys</a>
+            http://bit.ly/remonkeys
           </h1>
         </section>
 
         <section class="quote">
-          <blockquote cite="http://www.slideshare.net/bytte/responsive-web-design-10389263">
-            <p>"It is not the strongest of the species that survives, <br />nor the most intelligent, <br />but the one most responsive to change."</p>
-            <span>Charles Darwin</span></blockquote>
+          <blockquote cite="http://www.slideshare.net/bytte/responsive-web-design-10389263" class="long">
+            <p>"It is not the strongest of the <span class="strike">species</span> layouts that survives, nor the most intelligent, but the one most <span class="strike">adaptable</span> responsive to change."</p>
+            <span class="strike">Charles Darwin</span>
+            <span>Marco Barbosa</span>
+          </blockquote>
         </section>
 
         <section>
-          <h1>Responsive Design !== Adaptive Design</h1>
+          <h1>Responsive Design <br />!==<br /> Adaptive Design</h1>
         </section>
 
         <section class="chapter">
           <h1>The concept</h1>
         </section>
 
-        <section class="quote">
-          <blockquote>
-            <p>Display gracefully in a different range of resolutions with the use of fluid grids and media queries.</p>
-          </blockquote>
-        </section>
-
-        <section class="yellow">
-          <h1>Ethan Marcotte - Responsive Web Design <br /><a href="http://www.alistapart.com/articles/responsive-web-design/" target="_blank">(A List Apart)</a></h1>
-        </section>
-
         <section>
+            <h1>Display gracefully in a different range of resolutions with the use of fluid grids and media queries.</h1>
+        </section>
+
+        <section class="link">
+          <h1><a href="http://www.alistapart.com/articles/responsive-web-design/" target="_blank">Ethan Marcotte <br /> Responsive Web Design <br /></a></h1>
+        </section>
+
+        <section class="link">
           <h1><a href="http://bostonglobe.com/" target="_blank">Boston Globe</a></h1>
         </section>
 
-        <section>
+        <section class="link">
           <h1><a href="http://www.smashingmagazine.com/" target="_blank">Smashing Magazine</a></h1>
         </section>
 
@@ -149,14 +149,14 @@
           <h1>Uh oh.</h1>
         </section>
 
-        <section>
-          <h1 class="normal orphan">
-            <a href="http://phonecount.com" target="_blank">http://phonecount.com/pc/count.jsp</a>
+        <section class="link">
+          <h1>
+            <a href="http://phonecount.com" target="_blank">Phonecount</a>
           </h1>
         </section>
 
         <section>
-          <h1>+6 billion online phone users. <br />Right now.</h1>
+          <h1>+6 billion connected phone users. <br />Right now.</h1>
         </section>
 
         <section class="chapter">
@@ -254,8 +254,8 @@
           <h1><a href="http://www.w3.org/community/respimg/" target="_blank">W3C Responsive Images Community Group</a></h1>
         </section>
 
-        <section>
-          <figure class="has-code">
+        <section class="code">
+          <figure>
             <code>
               &lt;picture&gt;<br />
                 &nbsp;&nbsp;&lt;source src="high-res.jpg" media="min-width: 800px" /&gt;<br />
@@ -276,12 +276,14 @@
         </section>
 
         <section>
-          <ul>
+          <ul class="side">
             <li>All</li>
             <li>Braille</li>
             <li>Embossed</li>
             <li>handheld</li>
             <li>print</li>
+          </ul>
+          <ul class="side">
             <li>projection</li>
             <li>screen</li>
             <li>speech</li>
@@ -310,8 +312,8 @@
           </ul>
         </section>
 
-        <section>
-          <figure class="has-code">
+        <section class="code">
+          <figure>
             <code>
               &lt;link rel="stylesheet" <br />
               media="screen and (max-device-width: 480px)" href="small-devices.css"&gt;<br />
@@ -319,8 +321,8 @@
           </figure>
         </section>
 
-        <section>
-          <figure class="has-code">
+        <section class="code">
+          <figure>
             <code>
               @media screen and (max-device-width: 480px) { ... }
             </code>
@@ -340,24 +342,23 @@
           <h1>Zoomable typography?</h1>
         </section>
       
-        <section>
-          <figure class="has-code">
+        <section class="code">
+          <figure>
             <code>
             body { font-size: 100%; <span>/* 16px */</span> }
             </code>
           </figure>
         </section>
 
-        <section>
-          <figure class="has-code">
+        <section class="code">
+          <figure>
             <code>
               <span>
               /*target font size: 26px<br />
-               target line height: 36px<br /><br />
-
+               target line height: 36px<br />
                font-size = 26 ÷ 16 x 1em<br />
                line-height = 36 ÷ 26 x 1em
-              */</span><br /><br />
+              */</span><br />
 
                font-size: 1.625em; <br />
                line-height: 1.3846153846153846em; <br />
@@ -390,8 +391,8 @@
           <h2>(LESS/SASS/Stylus)</h2>
         </section>
 
-        <section>
-          <figure class="has-code">
+        <section class="code">
+          <figure>
             <code>
               .fluid_width(@target_width) {<br/>
               &nbsp;&nbsp;width: percentage(@target_width / @context_width); <br />
@@ -400,8 +401,8 @@
           </figure>
         </section>
 
-        <section>
-          <figure class="has-code">
+        <section class="code">
+          <figure>
             <code>
               .monkeybar { <br />
               &nbsp;&nbsp;width: 33.33333333%;<br />
@@ -429,28 +430,35 @@
           <h1>Awesome Tools</h1>
         </section>
 
-        <section>
+        <section class="link">
           <h1 class="orphan"><a href="http://adaptive-images.com/" target="_blank">Adaptive Images</a></h1>
         </section>
 
-        <section>
-          <h1 class="orphan"><a href="http://responsive.is/" target="_blank">responsive.is</a></h1>
+        <section class="link">
+          <h1 class="orphan"><a href="http://responsive.is/" target="_blank">Responsive.is</a></h1>
         </section>
 
-        <section>
+        <section class="link">
           <h1 class="orphan"><a href="http://tv.adobe.com/watch/adobe-technology-sneaks-2012/adobe-shadow/" target="_blank">Adobe Shadow</a></h1>
         </section>
 
         <section>
-          <h1>Fluid grid framework/generator.</h1>
-          <h2>My fave: <a href="goldengridsystem.com" target="_blank">Golden Grid System</a></h2>
+          <h1>Use a fluid grid framework/generator.</h1>
+        </section>
+
+        <section class="link">
+          <h1><a href="goldengridsystem.com" target="_blank">Golden Grid System</a></h1>
         </section>
 
         <section>
-          <h1 class="pink"><a href="http://www.modernizr.com/" target="_blank">Modernizr</a></h1>
+          <h1>Progressive Enhancement</h1>
         </section>
 
-        <section class="chapter">
+        <section class="link">
+          <h1><a href="http://www.modernizr.com/" target="_blank">Modernizr</a></h1>
+        </section>
+
+        <section>
           <h1>And a <strong>lot</strong> of patience!</h1>
         </section>
 
@@ -462,6 +470,7 @@
         </section>
 
         <section>
+          <!--
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89" enable-background="new 0 0 595.28 841.89" xml:space="preserve">
 <g>
@@ -509,15 +518,15 @@
     c9.011-0.573,16.151-8.042,16.151-17.198c0-9.154-7.141-16.625-16.151-17.198v-20.065c13.829,6.166,24.718,16.909,30.895,30.513
     c2.253-1.105,4.777-1.743,7.456-1.743c9.376,0,16.977,7.602,16.977,16.977C374.977,422.774,367.376,430.376,358,430.376z"/>
 </g>
-</svg>
+</svg>-->
+    <img id="monkey" src="./img/webmonkeys.svg" />
         </section>
 
-        <section class="chapter">
+        <section>
           <h1>Thank you!</h1>
         </section>
 
-        <section class="last">
-          <h1>Responsive Slides:</h1>
+        <section class="link last">
           <a href="https://github.com/marcobarbosa/responsive-slides">https://github.com/marcobarbosa/responsive-slides</a>
         </section>
 
@@ -546,7 +555,7 @@
     </div><!-- /#viewport -->
 
     <script src="js/slides.js?v9"></script>
-    <script src="js/gridlet.js"></script
+    <!--<script src="js/gridlet.js"></script>-->
 
   </body>
 </html>
