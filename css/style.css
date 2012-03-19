@@ -197,6 +197,7 @@ textarea[contenteditable] {
 body {
   background: transparent;
   text-shadow: 1px 1px 0 #fff;
+  overflow: hidden;
 }
 /* ------------------------------------ */
 body,
@@ -212,11 +213,11 @@ body,
 }
 #viewport section {
   background-color: #ddd;
-  background-image: -moz-radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
-  background-image: -webkit-radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
-  background-image: -o-radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
-  background-image: -ms-radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
-  background-image: radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+  background-image: -moz-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+  background-image: -webkit-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+  background-image: -o-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+  background-image: -ms-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+  background-image: radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
   display: none;
   width: 100%;
   position: absolute;
@@ -225,7 +226,15 @@ body,
   opacity: 1;
   padding-top: 2em;
   -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   -webkit-transition: opacity 0.5s ease-out;
+  -moz-transition: opacity 0.5s ease-out;
+  -ms-transition: opacity 0.5s ease-out;
+  -o-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
   z-index: 100;
 }
 #viewport .quote {
@@ -245,9 +254,13 @@ body,
 }
 #viewport .right {
   -webkit-animation: slideInRight .3s;
+  -moz-animation: slideInRight .3s;
+  -ms-animation: slideInRight .3s;
 }
 #viewport .left {
   -webkit-animation: slideInLeft .3s;
+  -moz-animation: slideInLeft .3s;
+  -ms-animation: slideInLeft .3s;
 }
 #viewport .previous {
   opacity: 0;
@@ -257,10 +270,6 @@ body,
 #viewport .current {
   display: block;
   left: 0;
-}
-#viewport .credits p {
-  text-align: left;
-  padding-left: 1em;
 }
 #viewport .credits ul > li {
   margin-bottom: 10px;
@@ -281,6 +290,46 @@ body,
   -ms-transition: width 0.3s ease-out;
   transition: width 0.3s ease-out;
 }
+@-moz-keyframes slideInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translatex(70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+  }
+}
+@-moz-keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translatex(-70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+  }
+}
+@-ms-keyframes slideInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translatex(70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+  }
+}
+@-ms-keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translatex(-70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+  }
+}
 @-webkit-keyframes slideInRight {
   0% {
     opacity: 0;
@@ -294,14 +343,10 @@ body,
 @-webkit-keyframes slideInLeft {
   0% {
     opacity: 0;
-    /*z-index: 200;*/
-  
     -webkit-transform: translatex(-70%);
   }
   100% {
     opacity: 1;
-    /*z-index: 200;*/
-  
     -webkit-transform: translatex(0);
   }
 }
@@ -326,6 +371,22 @@ img {
 }
 .has-code {
   margin: 0 10%;
+}
+.has-code code span {
+  color: #888;
+}
+.graphic {
+  display: block;
+  width: 90%;
+  margin-left: 1em;
+}
+.icon {
+  height: 30%;
+  margin: 10% auto;
+}
+.last a {
+  display: block;
+  text-align: center;
 }
 /*
 *
@@ -395,12 +456,10 @@ li {
 }
 ol li,
 ul li {
-  /* 16px / 24px */
+  /* 26 / 36px */
 
-  font-size: 1em;
-  line-height: 1.5em;
-  /* 24 */
-
+  font-size: 2em;
+  line-height: 1.3846153846153846em;
   list-style-type: none;
   text-align: left;
   padding-left: 2em;
@@ -408,6 +467,9 @@ ul li {
 .side {
   float: left;
   width: 50%;
+}
+.side li {
+  padding-left: 1em;
 }
 .code {
   color: #111;
@@ -434,11 +496,13 @@ blockquote:before {
   margin-left: -3em;
 }
 blockquote span {
-  /* 13px / 18px */
+  /* 16px / 24px */
 
-  font-size: 0.8125em;
-  line-height: 1.3846153846153846em;
-  color: #888;
+  font-size: 1em;
+  line-height: 1.5em;
+  /* 24 */
+
+  color: #ccc;
   display: block;
   margin-top: 10px;
 }
@@ -525,7 +589,6 @@ h3 {
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
   body {
-    background: red;
     /* Reset baseline grid to 16/16 = 1 */
   
     font-size: 1em;
@@ -540,10 +603,10 @@ h3 {
   ol li,
   ul li,
   .clean {
-    font-size: 4.25em;
-  }
-  .long-list li {
     font-size: 2.625em;
+  }
+  .credits li {
+    font-size: 1.625em;
   }
   h1 {
     font-size: 4.25em;
@@ -568,6 +631,20 @@ h3 {
   .side li {
     font-size: 2.625em;
     padding-left: 1em;
+  }
+  .graphic {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .icon {
+    height: 50%;
+    margin: 10% auto;
+  }
+  .last a {
+    /* 42px / 48px */
+  
+    font-size: 2.625em;
+    line-height: 1.1428571428571428em;
   }
 }
 /* @media screen and (min-width: 888px) */
@@ -652,6 +729,9 @@ h3 {
     font-size: 1.125em;
     max-width: 160em;
   }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+  /* Styles */
 }
 @media print {
   * {

@@ -109,9 +109,9 @@ abbr[title] {
 }
 a {
   text-decoration: underline;
-  
+
   &:visited{
-    
+
   }
 
   &:hover {
@@ -170,6 +170,7 @@ textarea[contenteditable] {-webkit-appearance: none;}
 body {
     background: transparent;
     text-shadow: 1px 1px 0 #fff;
+    overflow: hidden;
 }
 
 /* ------------------------------------ */
@@ -184,11 +185,11 @@ body,
 
     section {
         background-color: #ddd;
-        background-image: -moz-radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
-        background-image: -webkit-radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
-        background-image: -o-radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
-        background-image: -ms-radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
-        background-image: radial-gradient(center 40%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+        background-image: -moz-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+        background-image: -webkit-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+        background-image: -o-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+        background-image: -ms-radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
+        background-image: radial-gradient(center 20%, ellipse cover, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1) 60%);
         display: none;
         width: 100%;
         position: absolute;
@@ -198,7 +199,16 @@ body,
         padding-top: 2em;
 
         -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+
         -webkit-transition: opacity .5s ease-out;
+        -moz-transition: opacity .5s ease-out;
+        -ms-transition: opacity .5s ease-out;
+        -o-transition: opacity .5s ease-out;
+        transition: opacity .5s ease-out;
 
         z-index: 100;
     }
@@ -227,10 +237,14 @@ body,
 
     .right {
         -webkit-animation: slideInRight .3s;
+        -moz-animation: slideInRight .3s;
+        -ms-animation: slideInRight .3s;
     }
 
     .left {
         -webkit-animation: slideInLeft .3s;
+        -moz-animation: slideInLeft .3s;
+        -ms-animation: slideInLeft .3s;
     }
 
     .previous {
@@ -245,10 +259,6 @@ body,
     }
 
     .credits {
-        p { 
-            text-align: left;
-            padding-left: 1em;
-        }
         
         ul > li {
             margin-bottom: 10px;
@@ -263,7 +273,7 @@ body,
     border-bottom: 1px solid #fff;
     height: 6px;
     z-index: 999;
-    
+
     > div {
 
         background: #C3FF68;
@@ -280,6 +290,53 @@ body,
 
 }
 
+@-moz-keyframes slideInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(70%);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-moz-keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-70%);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-ms-keyframes slideInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(70%);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-ms-keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-70%);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
 
 @-webkit-keyframes slideInRight {
     0% {
@@ -324,8 +381,26 @@ img {
 }
 .has-code {
     margin: 0 10%;
+
+    code span {
+        color: #888;
+    }
+
+}
+.graphic {
+    display: block;
+    width: 90%;
+    margin-left: 1em;
+}
+.icon {
+    height: 30%;
+    margin: 10% auto;
 }
 
+.last a {
+    display: block;
+    text-align: center;
+}
 
 /*
 *
@@ -383,9 +458,9 @@ h1, h2, h3, h4, p, blockquote, span, li {
     font-weight: normal;
 }
 
-ol li, 
+ol li,
 ul li {
-    .normal();
+    .large();
     list-style-type: none;
     text-align: left;
     padding-left: 2em;
@@ -394,6 +469,10 @@ ul li {
 .side {
     float: left;
     width: 50%;
+
+    li {
+        padding-left: 1em;
+    }
 }
 
 .code {
@@ -425,8 +504,8 @@ blockquote {
     }
 
     span {
-        .small();
-        color: #888;
+        .normal();
+        color: #ccc;
         display: block;
         margin-top: 10px;
     }
@@ -476,7 +555,7 @@ h3 {
             box-sizing: border-box;
 }
 
-@media screen and (max-width: 40em) and (orientation: landscape) { 
+@media screen and (max-width: 40em) and (orientation: landscape) {
     #viewport {
         section {
             padding-top: 1.2em;
@@ -531,7 +610,7 @@ h3 {
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
 
-    body { 
+    body {
         /* Reset baseline grid to 16/16 = 1 */
         font-size: (@font-size) / @em;
     }
@@ -547,14 +626,17 @@ h3 {
         }
     }
 
-    ol li, 
+    ol li,
     ul li,
     .clean {
-        font-size: 68 / @em;
+        font-size: 42 / @em;
     }
 
-    .long-list li {
-        font-size: 42 / @em;
+    .credits { 
+
+        li {
+            font-size: 26 / @em;
+        }
     }
 
     h1 {
@@ -565,7 +647,7 @@ h3 {
         .huge();
     }
 
-    blockquote p, 
+    blockquote p,
     code {
         font-size: 38 / @em;
         line-height: (@line*2) / 38 * 1em;
@@ -583,6 +665,19 @@ h3 {
         }
     }
 
+    .graphic {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .icon {
+        height: 50%;
+        margin: 10% auto;
+    }
+
+    .last a {
+        .huge();
+    }
 
 }
 
@@ -692,6 +787,11 @@ h3 {
 
 }
 
+@media
+only screen and (-webkit-min-device-pixel-ratio : 2),
+only screen and (min-device-pixel-ratio : 2) {
+/* Styles */
+}
 
 
 

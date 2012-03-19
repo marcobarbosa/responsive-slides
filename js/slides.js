@@ -132,17 +132,6 @@ var SLIDES = (function(window, document){
         } else {
             onTouchCancel(event);
         }
-        
-        // Get difference from the start position.
-        // var delta = touch.startX - event.clientX;
-
-        // console.log(delta);
-
-        // Perform actions when swipe is far enough.
-        // if (Math.abs(delta) > 100) {
-        //     alert('swiping!');
-        //     this.doSlide(delta > 0 ? -1 : 1);
-        // }
 
     };
 
@@ -162,15 +151,17 @@ var SLIDES = (function(window, document){
             touch.swipeDirection = 1;
         } else if ( (touch.swipeAngle >= 135) && (touch.swipeAngle <= 225) ) {
             touch.swipeDirection = -1;
-        } else if ( (touch.swipeAngle > 45) && (touch.swipeAngle < 135) ) {
+        } /*else if ( (touch.swipeAngle > 45) && (touch.swipeAngle < 135) ) {
             touch.swipeDirection = -1;
         } else {
             touch.swipeDirection = 1;
-        }
+        }*/
     };
 
     var onTouchEnd = function(event) {
+        
         event.preventDefault();
+
         // check to see if more than one finger was used and that there is an ending coordinate
         if ( touch.fingerCount === 1 && touch.curX !== 0 ) {
             // use the Distance Formula to determine the length of the swipe
@@ -221,7 +212,7 @@ var SLIDES = (function(window, document){
         var newSlideClass = (direction > 0) ? 'right' : 'left';
 
         // If we can't slide, get out.
-        if (nTargetSlide < 0 || nTargetSlide > (NUM_TOTAL_SLIDES - 1) || isAnimating) {
+        if (!direction || nTargetSlide < 0 || nTargetSlide > (NUM_TOTAL_SLIDES - 1) || isAnimating) {
             return;
         }
 
