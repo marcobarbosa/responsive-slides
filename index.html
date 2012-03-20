@@ -255,7 +255,7 @@
           </blockquote>
         </section>
 
-        <section>
+        <section class="link">
           <h1><a href="http://www.w3.org/community/respimg/" target="_blank">W3C Responsive Images Community Group</a></h1>
         </section>
 
@@ -399,7 +399,7 @@
         <section class="code">
           <figure>
             <code>
-              .fluid_width(@target_width) {<br/>
+              .fluid_width(@target_width, @context_width) {<br/>
               &nbsp;&nbsp;width: percentage(@target_width / @context_width); <br />
               }
             </code>
@@ -511,7 +511,7 @@
     </div><!-- /#viewport -->
 
     <script src="js/slides.js?v9"></script>
-    <!--<script src="js/gridlet.js"></script>-->
+    <script src="js/gridlet.js"></script>
 
   </body>
 </html>
