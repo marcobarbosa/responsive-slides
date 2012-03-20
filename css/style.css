@@ -283,6 +283,7 @@ body,
 }
 #viewport .credits a {
   color: #111;
+  text-shadow: none;
 }
 #viewport .credits ul > li {
   font-size: 0.8125em;
@@ -643,6 +644,9 @@ h3 {
   ul li,
   .clean {
     font-size: 2.625em;
+  }
+  .credits a {
+    text-shadow: none;
   }
   .credits li {
     font-size: 1.625em;

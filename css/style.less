@@ -276,8 +276,9 @@ body,
 
         a {
             color: #111;
+            text-shadow: none;
         }
-        
+
         ul > li {
             font-size: (@font-size*0.8125) / @em;
             margin-bottom: 10px;
@@ -406,12 +407,12 @@ img {
 
     figure {
         margin: 0 10%;
-        
+
         code {
             color: #9CEDDA;
 
             text-shadow: none;
-            
+
             span {
                 color: #CCC0DE;
             }
@@ -610,7 +611,7 @@ h3 {
             margin-top: 0.3em!important;
         }
     }
-    
+
     .strike + span {
         display: inline;
     }
@@ -687,7 +688,11 @@ h3 {
         font-size: 42 / @em;
     }
 
-    .credits { 
+    .credits {
+
+        a {
+            text-shadow: none;
+        }
 
         li {
             font-size: 26 / @em;
