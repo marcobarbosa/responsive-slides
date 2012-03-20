@@ -475,6 +475,9 @@ span,
 li {
   text-align: center;
   font-weight: normal;
+  -moz-transition: all 0.6s ease-out;
+  -webkit-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
 }
 .strike {
   display: inline;
@@ -554,6 +557,14 @@ h3 {
 }
 .author {
   color: #444;
+}
+#monkey {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  -webkit-transition: all 0.5 ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5 ease-out;
 }
 /*
 *  Simple elastic gutters

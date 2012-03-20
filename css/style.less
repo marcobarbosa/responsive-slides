@@ -489,6 +489,9 @@ body {
 h1, h2, h3, h4, p, blockquote, span, li {
     text-align: center;
     font-weight: normal;
+    -moz-transition: all 0.6s ease-out;
+    -webkit-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
 }
 
 .strike {
@@ -574,6 +577,15 @@ h3 {
     color: #444;
 }
 
+#monkey {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    -webkit-transition: all 0.5 ease-out;
+    -moz-transition: all 0.5s ease-out;
+    transition: all 0.5 ease-out;
+}
+
 /*
 *  Simple elastic gutters
 *  Note: box-sizing will not work in IE6-7
@@ -648,6 +660,9 @@ h3 {
 
     h1 {
         margin: (48/42*1em) 0 (24/42*1em);
+    }
+
+    #monkey {
     }
 
 }
