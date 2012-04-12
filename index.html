@@ -27,7 +27,7 @@
     <div id="viewport" class="wrapper">
 
         <section class="current">
-          <h1>What's up with Responsive Web Design</h1>
+          <h1>What's up with <br />Responsive Web Design</h1>
           <h2 class="normal author">@MarcoBarbosa</h2>
         </section>
 
@@ -266,7 +266,7 @@
                 &nbsp;&nbsp;&lt;source src="high-res.jpg" media="min-width: 800px" /&gt;<br />
                 &nbsp;&nbsp;&lt;source src="mobile.jpg" /&gt;<br />
                 <span>&nbsp;&nbsp;&lt;!-- Fallback content: --&gt;<br /></span>
-                &nbsp;&nbsp;&lt;img src="mobile.jpg" /&gt;<br />
+                &nbsp;&nbsp;&lt;img src="fallback.jpg" /&gt;<br />
               &lt;/picture&gt;
             </code>
           </figure>
@@ -321,7 +321,7 @@
           <figure>
             <code>
               &lt;link rel="stylesheet" <br />
-              media="screen and (max-device-width: 480px)" href="small-devices.css"&gt;<br />
+              media="screen and (max-width: 480px)" href="small-devices.css"&gt;<br />
             </code>
           </figure>
         </section>
@@ -329,19 +329,22 @@
         <section class="code">
           <figure>
             <code>
-              @media screen and (max-device-width: 480px) { ... }
+              @media screen and (max-width: 480px) { ... }
             </code>
           </figure>
         </section>
 
-        <!--<section>
-          <figure class="has-code">
-            <code>
-              &lt;meta name="viewport"
-                content="width=device-width; initial-scale=1.0"&gt;
-            </code>
-          </figure>
-        </section>-->
+        <section>
+          <h1>Set breakpoints based on your content. <strong>Not</strong> on resolutions.</h1>
+        </section>
+
+        <section>
+          <h1>How about media queries to handle the images?</h1>
+        </section>
+
+        <section class="link">
+          <h1 class="orphan"><a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/" target="_blank">Media query &amp; Asset downloading tests</a></h1>
+        </section>
 
         <section class="chapter">
           <h1>Zoomable typography?</h1>
@@ -410,7 +413,17 @@
           <figure>
             <code>
               .monkeybar { <br />
-              &nbsp;&nbsp;width: 33.33333333%;<br />
+              &nbsp;&nbsp;width: .fluid_width(330/1024);<br />
+              }
+            </code>
+          </figure>
+        </section>
+
+        <section class="code">
+          <figure>
+            <code>
+              .monkeybar { <br />
+              &nbsp;&nbsp;width: 32.2265625%;<br />
               }
             </code>
           </figure>
@@ -478,7 +491,7 @@
           <img id="monkey" src="./img/webmonkeys2.svg" />
         </section> -->
 
-        <section>
+        <section class=>
           <h1>Thank you!</h1>
         </section>
 
@@ -488,13 +501,13 @@
 
         <section class="credits">
           <ol class="small">
-            <li>Newspaper symbol by John Caserta, from the <a href="http://thenounproject.com/">The Noun Project</a> collection.</li>
-            <li>iPhone symbol by The Noun Project, from the <a href="http://thenounproject.com/">The Noun Project</a> collection.</li>
-            <li>Computer symbol by The Noun Project, from the <a href="http://thenounproject.com/">The Noun Project</a> collection.</li>
-            <li>Desktop symbol by The Noun Project, from the <a href="http://thenounproject.com/">The Noun Project</a> collection.</li>
-            <li>Cellphone symbol by Marwa Boukarim, from the <a href="http://thenounproject.com/">The Noun Project</a> collection.</li>
-            <li>iPad symbol by Marwa Boukarim, from the <a href="http://thenounproject.com/">The Noun Project</a> collection.</li>
-            <li>Laptop symbol by Daxx Longaphie, from the <a href="http://thenounproject.com/">The Noun Project</a> collection.</li>
+            <li><a href="http://thenounproject.com/">Newspaper symbol by John Caserta, from the The Noun Project collection.</a></li>
+            <li><a href="http://thenounproject.com/">iPhone symbol by The Noun Project, from the The Noun Project collection.</a></li>
+            <li><a href="http://thenounproject.com/">Computer symbol by The Noun Project, from the The Noun Project collection.</a></li>
+            <li><a href="http://thenounproject.com/">Desktop symbol by The Noun Project, from the The Noun Project collection.</a></li>
+            <li><a href="http://thenounproject.com/">Cellphone symbol by Marwa Boukarim, from the The Noun Project collection.</a></li>
+            <li><a href="http://thenounproject.com/">iPad symbol by Marwa Boukarim, from the The Noun Project collection.</a></li>
+            <li><a href="http://thenounproject.com/">Laptop symbol by Daxx Longaphie, from the The Noun Project collection.</a></li>
             <li><a href="http://www.alistapart.com/articles/dao/">A Dao of Web Design</a></li>
             <li><a href="http://www.alistapart.com/articles/responsive-web-design/">responsive-web-design</a></li>
             <li><a href="http://www.slideshare.net/bytte/responsive-web-design-10389263">responsive-web-design-10389263</a></li>
